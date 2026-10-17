@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, "SF Pro Text", Geist, system-ui, sans-serif;
+  --font-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
+
+/* ---- Themes -------------------------------------------------------------
+   light / dark  = Classic (follows the system appearance)
+   glass         = Liquid Glass (always dark ground; the tile turns to frosted glass)
+   ------------------------------------------------------------------------- */
+[data-theme] {
+  --light-glass: linear-gradient(180deg, #fbfbfb 0%, #e4e4e4 55%, #cfcfcf 100%);
+}
+
+[data-theme="light"] {
+  --bg: #eeeeee;
+  --fg: #0a0a0a;
+  --muted: #5a5a5a;
+  --chip-bg: linear-gradient(180deg, #fcfcfc 0%, #f3f3f3 100%);
+  --chip-ring: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 0 0.5px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.06);
+  --chip-fg: #0a0a0a;
+  --chip-hot-bg: #ffffff;
+  --chip-hot-ring: inset 0 1px 0 #fff, 0 0 0 0.5px rgba(0, 0, 0, 0.2), 0 8px 18px rgba(0, 0, 0, 0.09);
+  --chip-hot-fg: #0a0a0a;
+  --chip-on-bg: #0a0a0a;
+  --chip-on-ring: 0 0 0 0.5px rgba(0, 0, 0, 0.4), 0 6px 14px rgba(0, 0, 0, 0.18);
+  --chip-on-fg: #ffffff;
+  --tile-bg: #ffffff;
+  --tile-ring: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 14px 30px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.06);
+  --tile-backdrop: none;
+  --toggle-track: linear-gradient(180deg, #ffffff 0%, #f4f4f4 100%);
+  --toggle-ring: inset 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.06);
+  --toggle-thumb: #0a0a0a;
+  --toggle-thumb-ring: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --toggle-on: #ffffff;
+  --toggle-off: #7a7a7a;
+}
+
+[data-theme="dark"] {
+  --bg: #151516;
+  --fg: #f5f5f7;
+  --muted: #a1a1a6;
+  --chip-bg: linear-gradient(180deg, #2c2c2f 0%, #232326 100%);
+  --chip-ring: inset 0 0 0 0.5px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 6px 14px rgba(0, 0, 0, 0.4);
+  --chip-fg: #f5f5f7;
+  --chip-hot-bg: linear-gradient(180deg, #38383c 0%, #2d2d30 100%);
+  --chip-hot-ring: inset 0 0 0 0.5px rgba(255, 255, 255, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 8px 18px rgba(0, 0, 0, 0.45);
+  --chip-hot-fg: #ffffff;
+  --chip-on-bg: #f5f5f7;
+  --chip-on-ring: 0 6px 14px rgba(0, 0, 0, 0.45);
+  --chip-on-fg: #0a0a0a;
+  --tile-bg: linear-gradient(180deg, #333336 0%, #28282b 100%);
+  --tile-ring: inset 0 0 0 0.5px rgba(255, 255, 255, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 16px 32px rgba(0, 0, 0, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.35);
+  --tile-backdrop: none;
+  --toggle-track: linear-gradient(180deg, #2a2a2d 0%, #222225 100%);
+  --toggle-ring: inset 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.4);
+  --toggle-thumb: #f5f5f7;
+  --toggle-thumb-ring: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --toggle-on: #0a0a0a;
+  --toggle-off: #9a9aa0;
+}
+
+[data-theme="glass"] {
+  --bg: radial-gradient(120% 90% at 50% 25%, #3d3f43 0%, #2a2c2f 50%, #1b1c1f 100%);
+  --fg: #f5f5f7;
+  --muted: #b4b6ba;
+  --chip-bg: linear-gradient(180deg, #5d5f64 0%, #4a4c51 50%, #3f4145 100%);
+  --chip-ring: inset 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.38), 0 10px 22px rgba(0, 0, 0, 0.3);
+  --chip-fg: #f5f5f7;
+  --chip-hot-bg: linear-gradient(180deg, #6c6e73 0%, #55575c 50%, #47494e 100%);
+  --chip-hot-ring: inset 0 0 0 1px rgba(255, 255, 255, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 12px 26px rgba(0, 0, 0, 0.36);
+  --chip-hot-fg: #ffffff;
+  --chip-on-bg: var(--light-glass);
+  --chip-on-ring: inset 0 1px 0 #fff, inset 0 -2px 4px rgba(0, 0, 0, 0.08), 0 10px 22px rgba(0, 0, 0, 0.35);
+  --chip-on-fg: #111111;
+  --tile-bg: linear-gradient(180deg, rgba(118, 120, 126, 0.55) 0%, rgba(74, 76, 81, 0.5) 100%);
+  --tile-ring: inset 0 0 0 1px rgba(255, 255, 255, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -12px 20px rgba(255, 255, 255, 0.05), 0 16px 32px rgba(0, 0, 0, 0.4);
+  --tile-backdrop: blur(16px) saturate(1.6);
+  --toggle-track: linear-gradient(180deg, #505257 0%, #2e3034 100%);
+  --toggle-ring: inset 0 0 0 1px rgba(255, 255, 255, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.35);
+  --toggle-thumb: var(--light-glass);
+  --toggle-thumb-ring: inset 0 1px 0 #ffffff, 0 1px 3px rgba(0, 0, 0, 0.3);
+  --toggle-on: #111111;
+  --toggle-off: #c9cacd;
+}
